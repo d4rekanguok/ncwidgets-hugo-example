@@ -9,6 +9,7 @@
     "start": "run-p start:**",
     "start:hugo": "hugo -d ../dist -s site -vw",
     "start:webpack": "webpack-dev-server --config webpack.dev.js --hot",
+    "start:cms-local-backend": "netlify-cms-proxy-server",
     "preview": "run-p preview:**",
     "preview:hugo": "npm run start:hugo -- -D -F",
     "preview:webpack": "npm run start:webpack",
@@ -68,6 +69,7 @@
   },
   "dependencies": {
     "@ncwidgets/file-relation": "^0.6.1",
-    "@ncwidgets/id": "^0.6.0"
+    "@ncwidgets/id": "^0.6.0",
+    "netlify-cms-proxy-server": "^1.2.4"
   }
 }
