@@ -65,5 +65,9 @@
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10",
     "webpack-merge": "^4.1.4"
+  },
+  "dependencies": {
+    "@ncwidgets/file-relation": "^0.6.1",
+    "@ncwidgets/id": "^0.6.0"
   }
 }

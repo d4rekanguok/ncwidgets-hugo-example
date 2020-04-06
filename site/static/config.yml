@@ -1,6 +1,8 @@
 backend:
   name: git-gateway
 
+local_backend: true
+
 media_folder: "site/static/img" # Folder where user uploaded files should go
 public_folder: "img"
 
@@ -10,11 +12,42 @@ collections: # A list of collections the CMS should be able to edit
     folder: "site/content/post" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
+      - label: "Categories"
+        name: categories
+        widget: ncw-file-relation
+        collection: setting
+        file: categories
+        target_field: categories
+        id_field: id
+        display_fields: name
+        multiple: true
+        hint: This field use @ncwidgets/file-relation
+        
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Intro Blurb", name: "description", widget: "text"}
       - {label: "Image", name: "image", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "setting"
+    label: Setting
+    files:
+      - file: "site/content/setting.json"
+        label: Categories
+        name: categories
+        fields:
+          - label: Categories
+            name: categories
+            widget: list
+            allow_add: true
+            fields:
+              - label: Name
+                name: name
+                widget: string
+              - label: ID
+                name: id
+                widget: ncw-id
+  
   - name: "pages"
     label: "Pages"
     files:
