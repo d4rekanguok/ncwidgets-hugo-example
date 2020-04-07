@@ -32,7 +32,7 @@ collections: # A list of collections the CMS should be able to edit
   - name: "setting"
     label: Setting
     files:
-      - file: "site/content/setting.json"
+      - file: "site/data/setting.json"
         label: Categories
         name: categories
         fields:
